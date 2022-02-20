@@ -22,3 +22,5 @@ git push
 
 Write-Host "Ending processes." -ForegroundColor green
 git checkout main
+
+cd "./other"
