@@ -4,11 +4,19 @@ param (
     [string]$m = "No message specified"
 )
 
-Write-Host "Starting commiting process on main branch."
+cd ..
+
+Write-Host "Starting commiting process on main branch." -ForegroundColor green
+git checkout main
 git add .
 git commit -m $m
 git push
 
-Write-Host "Starting commiting process on gh-pages branch."
-cd ..
-git subtree push --prefix dist origin gh-pages
+Write-Host "Starting commiting process on gh-pages branch." -ForegroundColor green
+git checkout gh-pages
+git add .
+git commit -m $m
+git push
+
+Write-Host "Ending processes." -ForegroundColor green
+git checkout main
