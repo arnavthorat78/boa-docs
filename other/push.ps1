@@ -18,7 +18,7 @@ git checkout source "dist/"
 git add .
 git commit -m $m
 git pull --rebase
-git push
+git push origin gh-pages
 
 Write-Host "Ending processes." -ForegroundColor green
 git checkout main
