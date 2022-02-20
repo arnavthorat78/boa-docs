@@ -1,4 +1,4 @@
-# Code to push to Git, then create/modify the brand gh-pages.
+# Code to push to Git, then create/modify the branch gh-pages.
 
 param (
     [string]$m = "No message specified"
@@ -14,8 +14,10 @@ git push
 
 Write-Host "Starting commiting process on gh-pages branch." -ForegroundColor green
 git checkout gh-pages
+git checkout source "dist/"
 git add .
 git commit -m $m
+git pull --rebase
 git push
 
 Write-Host "Ending processes." -ForegroundColor green
