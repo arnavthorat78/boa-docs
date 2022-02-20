@@ -13,7 +13,7 @@ git commit -m $m
 git push
 
 Write-Host "Starting commiting process on gh-pages branch." -ForegroundColor green
-git checkout gh-pages
+git checkout main
 git checkout source "dist/"
 git add .
 git commit -m $m
