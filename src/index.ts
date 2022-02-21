@@ -64,6 +64,29 @@ const waitForMs = (ms: number) => {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
-$(document).ready(async () => {
-	await typeSentence(carouselList[0].text, "#sentence");
-});
+/**
+ * Lazy-load an element. This is useful if you want to load something only when it is visible on the page.
+ *
+ * _Note: This function uses `IntersectionObserver`._
+ *
+ * @param target The element to watch.
+ */
+const lazyLoad = (target: Element) => {
+	const io = new IntersectionObserver((entries, observer) => {
+		entries.forEach(async (entry) => {
+			if (entry.isIntersecting) {
+				await typeSentence(carouselList[0].text, "#sentence");
+
+				observer.disconnect();
+			}
+		});
+	});
+
+	io.observe(target);
+};
+
+lazyLoad(document.querySelector("#sentence")!);
+
+// $(document).ready(async () => {
+// 	await typeSentence(carouselList[0].text, "#sentence");
+// });

@@ -2,8 +2,12 @@
 # Run like: .\push.ps1 -m "Message here"
 
 param (
-    [string]$m = "No message specified"
+    [string]$m = ""
 )
+
+if ($m -eq "") {
+    $m = Read-Host "You did not enter a message as a parameter. Please enter your message"
+}
 
 cd ..
 
