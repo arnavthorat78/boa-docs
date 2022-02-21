@@ -1,4 +1,5 @@
 # Code to push to Git, then create/modify the branch gh-pages.
+# Run like: .\push.ps1 -m "Message here"
 
 param (
     [string]$m = "No message specified"
