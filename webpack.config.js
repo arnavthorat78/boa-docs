@@ -8,6 +8,7 @@ module.exports = {
 	mode: "development", // TODO Change this to 'production'
 	entry: {
 		index: entryPath("index"),
+		docs: entryPath("docs"),
 	},
 	module: {
 		rules: [
