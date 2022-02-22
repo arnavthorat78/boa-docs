@@ -14,6 +14,7 @@ const downloadMessage = document.querySelector(".download-message")!;
  */
 const osIsMac = navigator.platform.toLowerCase().includes("mac"); // TODO Change navigator.platform to a non-deprecated value
 if (!osIsMac) {
+	// If the OS isn't macOS, make the button disabled and show a message to the user.
 	downloadButton.classList.add("disabled");
 	downloadMessage.innerHTML = "The installer can only be run on <strong>macOS</strong>.";
 }
@@ -44,8 +45,10 @@ const typeSentence = async (sentence: string, eleRef: string, delay: number = 10
 
 	while (i < letters.length) {
 		if (TEXT_CODE.charAt(i) == "\n") {
+			// If there is a newline, add the 'break line' tag for HTML formatting.
 			document.querySelector("#sentence")!.innerHTML += "<br />";
 		} else if (TEXT_CODE.charAt(i) == "\t") {
+			// If there is a tab, add four spaces in HTML.
 			document.querySelector("#sentence")!.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;";
 		}
 		await waitForMs(delay);
@@ -85,6 +88,7 @@ const lazyLoad = (target: Element) => {
 	io.observe(target);
 };
 
+// Start the lazy-loading for the code.
 lazyLoad(document.querySelector("#sentence")!);
 
 // $(document).ready(async () => {

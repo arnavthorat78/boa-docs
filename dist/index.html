@@ -14,20 +14,66 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
 		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/index.css" />
 		<title>Boa Documentation</title>
 	</head>
 	<body class="m-2 justify-content-center text-center">
-		<h1 class="display-3">Boa</h1>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-2">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index.html"
+					><strong class="fs-4">Boa</strong>
+					<small class="text-secondary">Documentation</small></a
+				>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="index.html"
+								><i class="bi bi-house"></i> Home</a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="docs.html"
+								><i class="bi bi-file-code"></i> Documentation</a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="about.html"
+								><i class="bi bi-info-circle"></i> About</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<h1 class="display-3 mt-3">Boa</h1>
 		<p class="text-secondary fs-5">The programming language no one asked for.</p>
 
 		<div class="container mt-5">
-			<a href="#" class="btn btn-lg btn-primary mx-2 download-button">
+			<a href="#" class="btn btn-lg btn-primary m-2 download-button">
 				<i class="bi bi-download"></i>&nbsp; Download
 			</a>
-			<a href="#" class="btn btn-lg btn-success mx-2">
+			<a href="#" class="btn btn-lg btn-success m-2">
 				<i class="bi bi-file-code"></i>&nbsp; Documentation
 			</a>
-			<a href="#" class="btn btn-lg btn-outline-danger mx-2">
+			<a href="#" class="btn btn-lg btn-outline-danger m-2">
 				<i class="bi bi-github"></i>&nbsp; View Source
 			</a>
 
@@ -41,11 +87,30 @@
 			<div
 				class="bg-black bg-gradient rounded-2 shadow-lg text-white text-start p-3 typing-container"
 			>
-				<span class="sentence" id="sentence"> </span>
+				<span class="sentence" id="sentence"></span>
 
 				<span id="feature-text"></span>
 			</div>
 		</div>
+
+		<h2 class="h2 mt-5 mb-3">What it is</h2>
+		<p>
+			<span class="text-primary"
+				>•&nbsp;&nbsp;Boa uses
+				<strong>the good points of popular programming languages</strong>.
+				<i class="bi bi-code-slash"></i
+			></span>
+			<br /><br />
+			<span class="text-success"
+				>•&nbsp;&nbsp;Boa has <strong>readable syntax with multiple keywords</strong>.
+				<i class="bi bi-text-left"></i
+			></span>
+			<br /><br />
+			<span class="text-danger"
+				>•&nbsp;&nbsp;Boa is <strong>easy to learn and adapt to</strong>.
+				<i class="bi bi-hand-thumbs-up"></i
+			></span>
+		</p>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
