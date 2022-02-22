@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, DocumentData } from "firebase/firestore";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+
+/// GET DATA ///
 
 /**
  * The configuration object to initialize Firebase.
@@ -48,3 +50,59 @@ if (!localStorage.getItem("docs")) {
 		})
 		.catch(console.log);
 }
+
+/// SHOW DOCUMENTS IN DOM ///
+
+/**
+ * The links to display on the home documents page.
+ */
+const links = document.querySelector(".links")!;
+
+/**
+ * Get the documents from local storage, and reset the links.
+ */
+const documents: any[] = JSON.parse(localStorage.getItem("docs")!);
+links.innerHTML = "";
+
+/**
+ * Make a new HTML card (the HTML code).
+ *
+ * @param title The title to display.
+ * @param description The description/subtitle to display.
+ * @param content The content to display. Please make this short.
+ * @returns The HTML card.
+ */
+const HTMLCard = (title: string, description: string, content: string) => {
+	return `<div class="card m-2 shadow-sm">
+		<div class="card-body">
+			<h4 class="card-title">${title}</h4>
+			<h6 class="card-subtitle mb-2 text-muted">${description}</h6>
+			<p class="card-text">${content}</p>
+			<a href="#" class="card-link">Read More</a>
+		</div>
+	</div>`;
+};
+
+/**
+ * Interface for a common document object retrieved from Firestore.
+ */
+interface Document {
+	content: string;
+	description: string;
+	displayName: string;
+	id: string;
+	num: number;
+}
+documents.forEach((document: Document) => {
+	/**
+	 * Shorten the description to 25 characters (28 if counting the _'...'_).
+	 *
+	 * If the description is less than or equal to 25 characters, then it will not cut and concat the string.
+	 */
+	const shortenDescription =
+		document.description.length <= 25
+			? document.description
+			: document.description.substring(0, 25).concat("...");
+
+	links.innerHTML += HTMLCard(document.displayName, document.description, shortenDescription);
+});
