@@ -47,6 +47,12 @@ if (!localStorage.getItem("docs")) {
 
 			// Set the information in local storage.
 			localStorage.setItem("docs", JSON.stringify(docs));
+
+			// Inform the user that the page will refresh.
+			alert("This page will refresh to update data.");
+
+			// Reload the current page to apply the changes to the DOM.
+			location.reload();
 		})
 		.catch(console.log);
 }
@@ -105,4 +111,18 @@ documents.forEach((document: Document) => {
 			: document.description.substring(0, 25).concat("...");
 
 	links.innerHTML += HTMLCard(document.displayName, document.description, shortenDescription);
+});
+
+/// REFRESH DATA ///
+
+const refreshButton: HTMLButtonElement = document.querySelector(".update-data")!;
+
+refreshButton.addEventListener("click", () => {
+	localStorage.removeItem("docs");
+
+	// Inform the user that the page will refresh.
+	alert("This page will refresh to update data. Note: It may refresh twice.");
+
+	// Reload the current page to apply the changes to the DOM.
+	location.reload();
 });

@@ -73,13 +73,31 @@
 			<div class="card m-2 shadow-sm">
 				<div class="card-body">
 					<h4 class="card-title">Loading...</h4>
-					<h6 class="card-subtitle mb-2 text-muted">Please wait...</h6>
-					<p class="card-text">
+					<h6 class="card-subtitle mb-2 text-muted">
+						<div class="spinner-border spinner-border-sm" role="status">
+							<span class="visually-hidden">Loading...</span>
+						</div>
+						&nbsp; Please wait...
+					</h6>
+					<!-- <p class="card-text">
 						<div class="spinner-border spinner-border-sm" role="status">
   							<span class="visually-hidden">Loading...</span>
 						</div>&nbsp; Almost done!
-					</p>
+					</p> -->
 				</div>
+			</div>
+		</div>
+
+		<div class="container mt-5">
+			<button class="btn btn-sm btn-outline-danger update-data">
+				<i class="bi bi-arrow-clockwise"></i>&nbsp; Update Data
+			</button>
+			<br />
+			<div class="mt-2">
+				<small class="text-secondary"
+					>All links are saved in local storage. To update data, click the button
+					above.</small
+				>
 			</div>
 		</div>
 
