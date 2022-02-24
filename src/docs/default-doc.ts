@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, orderBy, doc } from "firebase/firestore";
 
 /// GET DATA ///
 
@@ -31,11 +31,12 @@ const db = getFirestore();
  * Get the collection for the documentation information. Uses `collection`.
  */
 const colRef = collection(db, "docs");
+const q = query(colRef, orderBy("num", "asc"));
 
 // Get collection data
 if (!localStorage.getItem("docs")) {
 	// Only get data if the data isn't in local storage, to save the amount of reads and writes.
-	getDocs(colRef)
+	getDocs(q)
 		.then((snapshot) => {
 			/**
 			 * The documentation information.
@@ -78,13 +79,12 @@ links.innerHTML = "";
  * @param content The content to display. Please make this short.
  * @returns The HTML card.
  */
-const HTMLCard = (title: string, description: string, content: string) => {
+const HTMLCard = (title: string, description: string, id: string) => {
 	return `<div class="card m-2 shadow-sm">
 		<div class="card-body">
 			<h4 class="card-title">${title}</h4>
 			<h6 class="card-subtitle mb-2 text-muted">${description}</h6>
-			<p class="card-text">${content}</p>
-			<a href="#" class="card-link">Read More</a>
+			<a href="?id=${id}" class="card-link">Read More</a>
 		</div>
 	</div>`;
 };
@@ -100,17 +100,7 @@ interface Document {
 	num: number;
 }
 documents.forEach((document: Document) => {
-	/**
-	 * Shorten the description to 25 characters (28 if counting the _'...'_).
-	 *
-	 * If the description is less than or equal to 25 characters, then it will not cut and concat the string.
-	 */
-	const shortenDescription =
-		document.description.length <= 25
-			? document.description
-			: document.description.substring(0, 25).concat("...");
-
-	links.innerHTML += HTMLCard(document.displayName, document.description, shortenDescription);
+	links.innerHTML += HTMLCard(document.displayName, document.description, document.id);
 });
 
 /// REFRESH DATA ///
@@ -126,3 +116,8 @@ refreshButton.addEventListener("click", () => {
 	// Reload the current page to apply the changes to the DOM.
 	location.reload();
 });
+
+// const arr: any[] = JSON.parse(localStorage.getItem("docs")!);
+// arr.forEach((value) => {
+// 	console.log(value.id === "1GLoVC8OeBgN2BzUYWES");
+// });
