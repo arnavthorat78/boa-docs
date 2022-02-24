@@ -8,7 +8,9 @@ module.exports = {
 	mode: "development", // TODO Change this to 'production'
 	entry: {
 		index: entryPath("index"),
-		"default-doc": entryPath("docs/default-doc"),
+		"docs/default-doc": entryPath("docs/default-doc"),
+		"docs/parser-doc": entryPath("docs/parser-doc"),
+		"docs/link-doc": entryPath("docs/link-doc"),
 	},
 	module: {
 		rules: [
