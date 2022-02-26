@@ -16,7 +16,7 @@
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst checkQueryString = (key = \"id\") => {\r\n    const urlParams = new URLSearchParams(location.search);\r\n    const myParam = urlParams.get(key);\r\n    return myParam ? { exists: true, data: myParam } : { exists: false };\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (checkQueryString);\r\n\n\n//# sourceURL=webpack://boa-docs/./src/docs/parser-doc.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"checkQueryString\": () => (/* binding */ checkQueryString)\n/* harmony export */ });\nconst checkQueryString = (key = \"id\") => {\r\n    const urlParams = new URLSearchParams(location.search);\r\n    const myParam = urlParams.get(key);\r\n    return myParam ? { exists: true, data: myParam } : { exists: false };\r\n};\r\n\r\n\n\n//# sourceURL=webpack://boa-docs/./src/docs/parser-doc.ts?");
 
 /***/ })
 

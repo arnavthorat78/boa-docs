@@ -14,20 +14,83 @@
 /*!******************************!*\
   !*** ./src/docs/link-doc.ts ***!
   \******************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("\r\nconsole.log(\"Hello, world!\");\r\n\n\n//# sourceURL=webpack://boa-docs/./src/docs/link-doc.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _parser_doc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parser-doc */ \"./src/docs/parser-doc.ts\");\n\r\nconst webpageTitle = document.querySelector(\"title\");\r\nconst title = document.querySelector(\".title\");\r\nconst description = document.querySelector(\".description\");\r\nconst content = document.querySelector(\".content\");\r\nconst queryString = (0,_parser_doc__WEBPACK_IMPORTED_MODULE_0__.checkQueryString)(\"id\");\r\nconst docId = queryString.exists ? queryString.data : null;\r\nconst arr = JSON.parse(localStorage.getItem(\"docs\"));\r\nif (docId) {\r\n    arr.forEach((value) => {\r\n        if (value.id === docId) {\r\n            webpageTitle.innerHTML = `Boa Documentation | ${value.displayName}`;\r\n            title.innerHTML = value.displayName;\r\n            description.innerHTML = value.description;\r\n            content.innerHTML = value.content;\r\n        }\r\n    });\r\n}\r\n\n\n//# sourceURL=webpack://boa-docs/./src/docs/link-doc.ts?");
+
+/***/ }),
+
+/***/ "./src/docs/parser-doc.ts":
+/*!********************************!*\
+  !*** ./src/docs/parser-doc.ts ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"checkQueryString\": () => (/* binding */ checkQueryString)\n/* harmony export */ });\nconst checkQueryString = (key = \"id\") => {\r\n    const urlParams = new URLSearchParams(location.search);\r\n    const myParam = urlParams.get(key);\r\n    return myParam ? { exists: true, data: myParam } : { exists: false };\r\n};\r\n\r\n\n\n//# sourceURL=webpack://boa-docs/./src/docs/parser-doc.ts?");
 
 /***/ })
 
 /******/ 	});
 /************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/docs/link-doc.ts"]();
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/docs/link-doc.ts");
 /******/ 	
 /******/ })()
 ;

@@ -9,7 +9,7 @@ interface QueryStringReturn {
 /**
  * Check if a query string exists or not. If it does, it will return the value as well.
  *
- * @param key The key to search for.
+ * @param key The key to search for. By default, this is `id`.
  * @returns An object with an `exists` property and a `data` property, if available.
  */
 const checkQueryString = (key = "id"): QueryStringReturn => {
@@ -19,4 +19,15 @@ const checkQueryString = (key = "id"): QueryStringReturn => {
 	return myParam ? { exists: true, data: myParam } : { exists: false };
 };
 
-export default checkQueryString;
+/**
+ * Interface for a common document object retrieved from Firestore.
+ */
+interface Document {
+	content: string;
+	description: string;
+	displayName: string;
+	id: string;
+	num: number;
+}
+
+export { checkQueryString, Document };
