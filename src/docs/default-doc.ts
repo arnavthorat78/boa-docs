@@ -85,7 +85,7 @@ const HTMLCard = (title: string, description: string, id: string) => {
 		<div class="card-body">
 			<h4 class="card-title">${title}</h4>
 			<h6 class="card-subtitle mb-2 text-muted">${description}</h6>
-			<a href="?id=${id}" class="card-link">Read More</a>
+			<a href="view.html?id=${id}" class="card-link">Read More</a>
 		</div>
 	</div>`;
 };
@@ -96,6 +96,9 @@ documents.forEach((document: Document) => {
 
 /// REFRESH DATA ///
 
+/**
+ * The button to refresh local storage.
+ */
 const refreshButton: HTMLButtonElement = document.querySelector(".update-data")!;
 
 refreshButton.addEventListener("click", () => {

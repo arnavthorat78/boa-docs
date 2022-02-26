@@ -24,6 +24,15 @@ const checkQueryString = (key = "id"): QueryStringReturn => {
  */
 interface Document {
 	content: string;
+	contentOptions: {
+		autoLink: boolean;
+		codeBlocks: boolean;
+		emoji: boolean;
+		imgDimensions: boolean;
+		strikethrough: boolean;
+		tables: boolean;
+		tasklists: boolean;
+	};
 	description: string;
 	displayName: string;
 	id: string;
