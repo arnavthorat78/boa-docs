@@ -32,10 +32,26 @@ const docId = queryString.exists ? queryString.data! : null;
  */
 const arr: any[] = JSON.parse(localStorage.getItem("docs")!);
 
+/**
+ * An error code type.
+ */
+type Code = "ERR_ID_NOT_FOUND" | "ERR_ID_NOT_AVAILABLE";
+/**
+ * Inform the user for a query string error.
+ *
+ * @param code The error code.
+ */
+const queryStringError = (code: Code) => {
+	webpageTitle.innerHTML = `Boa Documentation | Error`;
+	title.innerHTML = "Oops...";
+	description.innerHTML = "An error occured!";
+	content.innerHTML = `Sorry, but an error occured. When you get help, give them this code: <strong>${code}</strong>.`;
+};
+
 // If there is an ID...
 if (docId) {
 	// Loop over each document...
-	arr.forEach((value: Document) => {
+	for (const value of arr) {
 		// If the current document is equal to the query string ID...
 		if (value.id === docId) {
 			/**
@@ -53,6 +69,17 @@ if (docId) {
 			title.innerHTML = value.displayName;
 			description.innerHTML = value.description;
 			content.innerHTML = converter.makeHtml(value.content);
+
+			// To improve preformance, stop looping after finding the correct one.
+			break;
 		}
-	});
+	}
+
+	// If the fields are empty, inform the user that the ID was most likely not found.
+	if (title.innerHTML == "" || description.innerHTML == "" || content.innerHTML == "") {
+		queryStringError("ERR_ID_NOT_FOUND");
+	}
+} else {
+	// Inform the user that the ID wasn't provided.
+	queryStringError("ERR_ID_NOT_AVAILABLE");
 }
