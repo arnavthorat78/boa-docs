@@ -90,7 +90,3 @@ const lazyLoad = (target: Element) => {
 
 // Start the lazy-loading for the code.
 lazyLoad(document.querySelector("#sentence")!);
-
-// $(document).ready(async () => {
-// 	await typeSentence(carouselList[0].text, "#sentence");
-// });

@@ -8,6 +8,7 @@ module.exports = {
 	mode: "development", // TODO Change this to 'production'
 	entry: {
 		index: entryPath("index"),
+		"shared/admin-button": entryPath("shared/admin-button"),
 		"docs/default-doc": entryPath("docs/default-doc"),
 		"docs/parser-doc": entryPath("docs/parser-doc"),
 		"docs/link-doc": entryPath("docs/link-doc"),
